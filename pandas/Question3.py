@@ -26,7 +26,7 @@ print(df.loc[2])
 print("------------------")
 print(df.iloc[2])
 
-# Adding a Column to Your DataFrame
+## Adding a Column to Your DataFrame
 print('\n')
 df = pd.DataFrame(data=np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['A', 'B', 'C'])
 print(df)
@@ -38,7 +38,7 @@ df['D'] = df.index
 print("------------------")
 print(df)
 
-# Appending a column to `df`
+## Appending a column to `df`
 print('\n')
 df = pd.DataFrame(data=np.array([[1, 1, 2], [3, 2, 4]]), columns=range(1, 4))
 print(df)
@@ -47,7 +47,7 @@ df.loc[:, 4] = pd.Series(['5', '6'], index=df.index)
 print("------------------")
 print(df)
 
-# Resetting the Index of Your DataFrame
+## Resetting the Index of Your DataFrame
 print('\n')
 df = pd.DataFrame(data=np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), index=[2.5, 12.6, 4.8])
 print(df)
