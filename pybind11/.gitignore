@@ -2,4 +2,4 @@ build/
 .cache/
 __pycache__/
 .vscode/
-CMakeLists.txt
+*.so
