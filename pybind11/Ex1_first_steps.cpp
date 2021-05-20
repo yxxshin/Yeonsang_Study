@@ -15,6 +15,11 @@ int add_with_default_arguments(int i = 2, int j = 1) {
 
 
 PYBIND11_MODULE(example1, m) {
+    /* Arguments */
+    // example1 : module name (should not be in quotes)
+    // m        : variable of type py::module_ (main interface for creating bindings)
+
+
     // optional module docstring
     m.doc() = "pybind11 example plugin";    
 
