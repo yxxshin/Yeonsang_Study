@@ -4,7 +4,9 @@
 #include <algorithm>
 using namespace std;
 
-int middle(vector<int> fence, int i, int k, int j) {
+vector<int> fence;
+
+int middle(int i, int k, int j) {
     // from fence[i] to fence[j], but fence[k] & fence[k+1] must be included
     int res, first = k, last = k + 1, height;
     height = min(fence[first], fence[last]);
@@ -32,14 +34,15 @@ int middle(vector<int> fence, int i, int k, int j) {
     
 }
 
-int solve(vector<int> fence, int i, int j) {
+int solve(int i, int j) {
     // from fence[i] to fence[j]
     if(i == j) {
         return fence[i];
     }
     
     int mid = (i + j) / 2;
-    return max({solve(fence, i, mid), solve(fence, mid + 1, j), middle(fence, i, mid, j)});
+    int ret = max(solve(i, mid), solve(mid + 1, j));
+    return max(ret, middle(i, mid, j));
 }
 
 
@@ -49,7 +52,7 @@ int main()
     scanf("%d", &test_num);
     while(test_num--) {
         int fence_num;
-        vector<int> fence;
+        fence.clear();
         scanf("%d", &fence_num);
         for(int i = 0; i < fence_num; i++) {
             int input;
@@ -58,6 +61,6 @@ int main()
         }
         
         // Solution by Divide & Conquer
-        printf("%d\n", solve(fence, 0, fence_num-1));
+        printf("%d\n", solve(0, fence_num-1));
     }
 }
