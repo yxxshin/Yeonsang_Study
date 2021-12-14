@@ -41,6 +41,7 @@ vector<int> multiply(const vector<int> &a, const vector<int> &b) {
 
 // a += b * (10^k)
 void addTo(vector<int>& a, const vector<int>& b, int k) {
+    a.resize(max<int>(a.size(), b.size() + k));
     if(b.size() + k > a.size()) {
         for(int i = 0; i < b.size() + k - a.size(); i++) {
             a.push_back(0);
@@ -54,6 +55,7 @@ void addTo(vector<int>& a, const vector<int>& b, int k) {
 
 // a -= b (assuring that a >= b)
 void subFrom(vector<int>& a, const vector<int>& b) {
+    a.resize(max<int>(a.size(), b.size()) + 1);
     for(int i = 0; i < b.size(); i++) {
         a[i] -= b[i];
     }
@@ -95,6 +97,7 @@ vector<int> karatsuba(const vector<int>& a, const vector<int>& b) {
 }
 
 
+
 int main()
 {
     // Testing multiply
@@ -112,5 +115,7 @@ int main()
     vector<int> ans2 = karatsuba({9, 8, 7, 6, 5, 4, 3, 2, 1}, {1, 1, 1, 1, 1, 1, 1});
     for(int i = ans2.size() - 1; i >= 0; i--) {
         printf("%d", ans2[i]);
-    }   
+    }
+    
+    
 }
